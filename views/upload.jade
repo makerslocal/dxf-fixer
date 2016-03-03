@@ -1,0 +1,10 @@
+extends layout
+
+block pageContent
+  div.wrapper
+    h2 EPS Upload
+    hr
+    form(action="/part/upload" method="post" enctype="multipart/form-data")
+      input(name="part" type="file")
+      br
+      input(type="submit" value="Submit")

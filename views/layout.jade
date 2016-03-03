@@ -1,0 +1,40 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(href='https://fonts.googleapis.com/css?family=Maven+Pro' rel='stylesheet' type='text/css')
+
+    script(src="https://code.jquery.com/jquery-2.1.4.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/modernizr/2.8.3/modernizr.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/fastclick/1.0.6/fastclick.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.7/p5.min.js")
+    script(src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.4.7/addons/p5.dom-min.js")
+  body
+    div#pageHeader.wrapper.clearfix
+      div#headerLinks
+        div.buttonLink
+          a(href='/') Home
+        div.buttonLink
+          a(href='/auth/login') Login
+        div.buttonLink
+          a(href='/auth/logout') Logout
+        div.buttonLink
+          a(href='/account/details') Account
+        div.buttonLink
+          a(href='/part/upload') Upload
+        div.buttonLink
+          a(href='/part/list') Parts
+      block pageHeader
+      include ./includes/ascii_spoon.jade
+      include ./includes/ascii_title.jade
+    
+    block pageContent
+    
+    div.wrapper
+      | Site licensed under GPLv2. Source on 
+      a(href="https://github.com/ctag/cerealbox-site") github
+      | .
+      
+    
+    
