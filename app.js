@@ -133,9 +133,9 @@ function (req, res, next) {
     console.log("errors: ", err);
     var stdoutArr = stdout.split('\n');
     console.log("stdout: ", stdoutArr);
+    res.redirect('/download');
   });
   //res.render('uploaded', { title: 'Upload landing page', err: null, changes: null });
-  res.redirect('/download');
 });
 
 ////////////////////
