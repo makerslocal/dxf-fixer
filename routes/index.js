@@ -3,7 +3,7 @@ var router = express.Router();
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.render('index', { title: 'Cerealbox' });
+  res.render('index', { title: 'DXF UPGRAYED' });
 });
 
 router.get('/index', function(req, res, next) {

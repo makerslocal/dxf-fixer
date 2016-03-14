@@ -103,7 +103,7 @@ app.use('/', route_root);
 // });
 
 app.get('/part/upload', function (req, res, next) {
-  res.render('upload');
+  res.render('upload', { title: 'Upload garbage, receive magic' } );
 });
 
 function fileFilter (req, file, cb) {
