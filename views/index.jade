@@ -2,9 +2,12 @@ extends layout
 
 block pageContent
   div.wrapper
-    h2 Status
-    p
-      | Site should be up. Ta-da.
+    h2 EPS Upload
+    hr
+    form(action="/part/upload" method="post" enctype="multipart/form-data")
+      input(name="part" type="file")
+      br
+      input(type="submit" value="Submit")
   div.wrapper
     h2 What is this?
     p

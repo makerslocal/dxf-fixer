@@ -75,10 +75,10 @@ app.use(cookieParser());
 //   cstore_instance = store;
 // });
 
-app.use(function (req, res, next) {
-  console.log('\n[' + new Date() + '] Request from: ', req.headers['x-forwarded-for']);
-  next();
-});
+// app.use(function (req, res, next) {
+//   console.log('\n[' + new Date() + '] Request from: ', req.headers['x-forwarded-for']);
+//   next();
+// });
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.static(path.join(__dirname, 'uploads')));
@@ -86,6 +86,14 @@ app.use(express.static(path.join(__dirname, 'uploads')));
 app.get('/download', function(req, res){
   var file = __dirname + '/uploads/file.dxf';
   res.download(file); // Set disposition and send it.
+  var command = 'rm uploads/*.eps';
+  //var command = 'cp ' + req.file.path + ' uploads/file.dxf';
+  console.log("Running command: ", command);
+  exec(command, function (err, stdout, stderr) {
+    console.log("errors: ", err);
+    var stdoutArr = stdout.split('\n');
+    console.log("stdout: ", stdoutArr);
+  });
 });
 
 // directory based routes
@@ -102,9 +110,9 @@ app.use('/', route_root);
 //   });
 // });
 
-app.get('/part/upload', function (req, res, next) {
-  res.render('upload', { title: 'Upload garbage, receive magic' } );
-});
+// app.get('/part/upload', function (req, res, next) {
+//   res.render('upload', { title: 'Upload garbage, receive magic' } );
+// });
 
 function fileFilter (req, file, cb) {
   var fileExtension = file.originalname.split('.').pop();
